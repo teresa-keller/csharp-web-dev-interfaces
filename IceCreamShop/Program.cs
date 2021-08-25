@@ -10,7 +10,7 @@ namespace IceCreamShop
             Case menu = new Case();
             List<Flavor> availableFlavors = menu.Flavors;
             List<Cone> availableCones = menu.Cones;
-
+            List<Flavor> bonusFlavors = menu.Flavors;
             // TODO: Use a Comparer class to sort the 'flavors' array alphabetically by the 'name'
             //  field.
             Console.WriteLine("Flavors:");
@@ -44,6 +44,19 @@ namespace IceCreamShop
             foreach (Cone cone in availableCones)
             {
                 Console.WriteLine(cone.Name + ": " + cone.Cost);
+            }
+            Console.WriteLine(" ");
+            Console.WriteLine("Bonus Flavors:");
+            foreach (Flavor bonusFlavor in bonusFlavors)
+            {
+                Console.WriteLine(bonusFlavor.Name + ": Allergen count - " + bonusFlavor.Allergens.Count);
+            }
+            bonusFlavors.Sort(new AllergenComparer());
+            Console.WriteLine(" ");
+            Console.WriteLine("Bonus Sorted Flavors:");
+            foreach (Flavor bonusFlavor in bonusFlavors)
+            {
+                Console.WriteLine(bonusFlavor.Name + ": Allergen count - " + bonusFlavor.Allergens.Count);
             }
         }
     }
