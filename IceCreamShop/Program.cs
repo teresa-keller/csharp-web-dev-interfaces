@@ -43,7 +43,7 @@ namespace IceCreamShop
             Console.WriteLine("Sorted Cones:");
             foreach (Cone cone in availableCones)
             {
-                Console.WriteLine(cone.Name + ": " + cone.Cost);
+                Console.WriteLine(cone.Name + ": " +  string.Format("{0:C}", cone.Cost));
             }
             Console.WriteLine(" ");
             Console.WriteLine("Bonus Flavors:");
